@@ -13,4 +13,7 @@ class FetchScheduler(
 
     @Scheduled(cron = "0 0 2 * * *", zone = "Asia/Seoul")
     fun fetchB() = fetchService.fetchAllAndSave(2)
+
+    @Scheduled(cron = "0 0 3 * * *", zone = "Asia/Seoul")
+    fun batch()=fetchService.batch()
 }

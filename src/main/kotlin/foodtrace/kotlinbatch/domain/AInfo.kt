@@ -8,6 +8,4 @@ open class AInfo(
     @Id
     val id : Long,
     val name : String
-) {
-    protected constructor() : this(0L, "")
-}
+)
