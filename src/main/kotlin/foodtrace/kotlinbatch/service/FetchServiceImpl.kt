@@ -1,5 +1,6 @@
 package foodtrace.kotlinbatch.service
 
+import foodtrace.kotlinbatch.dto.Info
 import foodtrace.kotlinbatch.dto.ProviderDto
 import foodtrace.kotlinbatch.provider.Provider
 import org.springframework.stereotype.Service
@@ -11,5 +12,9 @@ class FetchServiceImpl(
     private val providerMap =providers.associateBy { it.key}
     override fun fetchAllAndSave(key: Int){
         providerMap[key]?.fetchAndSave()
+    }
+
+    override fun batch(): List<Info> {
+
     }
 }
