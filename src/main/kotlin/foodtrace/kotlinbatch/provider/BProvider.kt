@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component
 
 @Component
 class BProvider(
-    private val bInfoRepository: BInfoRepository,
-    override val key: Int=2
+    private val bInfoRepository: BInfoRepository
 ) : Provider<BProviderDto> {
+    override val key: Int=2
+
     override fun fetch(): List<BProviderDto> =listOf(
         BProviderDto(1L, 2000L),
         BProviderDto(2L, 3000L)

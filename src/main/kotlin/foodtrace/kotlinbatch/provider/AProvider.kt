@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class AProvider(
-    private val aInfoRepository: AInfoRepository,
-    override val key: Int =1
+    private val aInfoRepository: AInfoRepository
 ) : Provider<AProviderDto> {
+
+    override val key: Int =1
+
     override fun fetch(): List<AProviderDto> = listOf(
         AProviderDto(1L, "good"),
         AProviderDto(2L, "good2")

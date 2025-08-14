@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class FetchServiceImpl(
-    private val providers : List<Provider<out ProviderDto>>,
+    providers : List<Provider<out ProviderDto>>,
     private val aInfoRepository: AInfoRepository
 ) : FetchService {
     private val providerMap =providers.associateBy { it.key}
