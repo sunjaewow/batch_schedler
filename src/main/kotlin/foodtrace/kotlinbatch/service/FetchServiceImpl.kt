@@ -1,29 +1,15 @@
 package foodtrace.kotlinbatch.service
 
-import foodtrace.kotlinbatch.domain.AInfo
-import foodtrace.kotlinbatch.dto.AProviderDto
-import foodtrace.kotlinbatch.dto.BProviderDto
+import foodtrace.kotlinbatch.dto.ProviderDto
 import foodtrace.kotlinbatch.provider.Provider
-import foodtrace.kotlinbatch.repository.AInfoRepository
-import foodtrace.kotlinbatch.repository.BInfoRepository
-import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 
 @Service
 class FetchServiceImpl(
-    private val aProvider: Provider<AProviderDto>,
-    private val bProvider: Provider<BProviderDto>,
-    private val aInfoRepository: AInfoRepository,
-    private val bInfoRepository : BInfoRepository
+    private val providers : List<Provider<out ProviderDto>>
 ) : FetchService {
-
-    @Transactional
-    override fun AfetchAllAndSave() {
-        val aProviderDtos = aProvider.fetchAll()
-        aInfoRepository.saveAll(aProviderDtos.map { AInfo(it.id, it.name) })
+    private val providerMap =providers.associateBy { it.key}
+    override fun fetchAllAndSave(key: Int){
+        providerMap[key]?.fetchAndSave()
     }
-
-    @Transactional
-
-
 }
