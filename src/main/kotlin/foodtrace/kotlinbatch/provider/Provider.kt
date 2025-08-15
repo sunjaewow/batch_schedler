@@ -1,6 +1,6 @@
 package foodtrace.kotlinbatch.provider
 
-import foodtrace.kotlinbatch.dto.ProviderDto
+import foodtrace.kotlinbatch.dto.request.ProviderDto
 
 interface Provider<T : ProviderDto> {
     val key : Int

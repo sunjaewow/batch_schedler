@@ -1,6 +1,6 @@
 package foodtrace.kotlinbatch.factory
 
-import foodtrace.kotlinbatch.dto.ProviderDto
+import foodtrace.kotlinbatch.dto.request.ProviderDto
 import foodtrace.kotlinbatch.provider.AProvider
 import foodtrace.kotlinbatch.provider.BProvider
 import foodtrace.kotlinbatch.provider.Provider

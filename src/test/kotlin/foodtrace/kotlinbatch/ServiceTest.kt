@@ -2,10 +2,10 @@ package foodtrace.kotlinbatch
 
 import foodtrace.kotlinbatch.domain.AInfo
 import foodtrace.kotlinbatch.domain.BInfo
-import foodtrace.kotlinbatch.dto.Info
+import foodtrace.kotlinbatch.dto.response.InfoResponseDto
 import foodtrace.kotlinbatch.repository.AInfoRepository
 import foodtrace.kotlinbatch.repository.BInfoRepository
-import foodtrace.kotlinbatch.service.FetchService
+import foodtrace.kotlinbatch.service.BatchService
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.DisplayName
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,7 +16,7 @@ import kotlin.test.assertEquals
 @SpringBootTest
 class ServiceTest(
     @Autowired
-    private val fetchService: FetchService,
+    private val batchService: BatchService,
     @Autowired
     private val aInfoRepository: AInfoRepository,
     @Autowired
@@ -45,10 +45,10 @@ class ServiceTest(
         ))
 
         //when
-        val result = fetchService.batch()
+        val result = batchService.batch()
         val expected = listOf(
-            Info(1L, "a", 2000L),
-            Info(2L, "b", 3000L)
+            InfoResponseDto(1L, "a", 2000L),
+            InfoResponseDto(2L, "b", 3000L)
         )
         //then
         assertEquals(expected, result.sortedBy { it.id })
