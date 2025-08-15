@@ -15,7 +15,7 @@ class BProvider(
 
     override fun fetch(): List<BProviderDto> {
         return webClient.get()
-            .uri("https://api.example.com/a/infos")
+            .uri("https://api.example.com/b/infos")
             .retrieve()
             .bodyToFlux(BProviderDto::class.java)
             .collectList()
