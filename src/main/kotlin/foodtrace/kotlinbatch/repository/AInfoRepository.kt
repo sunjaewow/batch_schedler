@@ -12,5 +12,5 @@ interface AInfoRepository : JpaRepository<AInfo, Long> {
         value = """
         select a.id as id, a.name as name, b.price as price from AInfo a left join BInfo b on a.id = b.id
     """, nativeQuery = true)
-    fun merge() : List<Info>
+    fun join() : List<Info>
 }
