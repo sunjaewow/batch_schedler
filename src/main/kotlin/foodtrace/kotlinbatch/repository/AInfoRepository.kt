@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface AInfoRepository : JpaRepository<AInfo, Long> {
     @Query(
-        value = """
-        select a.id as id, a.name as name, b.price as price from AInfo a left join BInfo b on a.id = b.id
-    """, nativeQuery = true)
+        "select new foodtrace.kotlinbatch.dto.response.InfoResponseDto(a.id, a.name, b.price) from AInfo a left join BInfo b on a.id=b.id"
+    )
     fun join() : List<InfoResponseDto>
 }
