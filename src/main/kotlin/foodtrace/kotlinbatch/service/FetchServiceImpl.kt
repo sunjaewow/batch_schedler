@@ -16,5 +16,5 @@ class FetchServiceImpl(
         providerMap[key]?.fetchAndSave()
     }
 
-    override fun batch(): List<Info> = aInfoRepository.merge()
+    override fun batch(): List<Info> = aInfoRepository.join()
 }
