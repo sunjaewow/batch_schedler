@@ -1,19 +1,19 @@
 package foodtrace.kotlinbatch.scheduler
 
-import foodtrace.kotlinbatch.service.FetchService
+import foodtrace.kotlinbatch.service.BatchService
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 
 @Service
-class FetchScheduler(
-    private val fetchService: FetchService
+class BatchScheduler(
+    private val batchService: BatchService
 ) {
     @Scheduled(cron = "0 0 1 * * *", zone = "Aisa/Seoul")
-    fun fetchA() = fetchService.fetchAllAndSave(1)
+    fun fetchA() = batchService.fetchAllAndSave(1)
 
     @Scheduled(cron = "0 0 2 * * *", zone = "Asia/Seoul")
-    fun fetchB() = fetchService.fetchAllAndSave(2)
+    fun fetchB() = batchService.fetchAllAndSave(2)
 
     @Scheduled(cron = "0 0 3 * * *", zone = "Asia/Seoul")
-    fun batch()=fetchService.batch()
+    fun batch()=batchService.batch()
 }

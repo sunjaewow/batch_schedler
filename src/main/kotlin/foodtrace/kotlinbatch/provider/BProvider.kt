@@ -1,7 +1,7 @@
 package foodtrace.kotlinbatch.provider
 
 import foodtrace.kotlinbatch.domain.BInfo
-import foodtrace.kotlinbatch.dto.BProviderDto
+import foodtrace.kotlinbatch.dto.request.BProviderDto
 import foodtrace.kotlinbatch.repository.BInfoRepository
 import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
