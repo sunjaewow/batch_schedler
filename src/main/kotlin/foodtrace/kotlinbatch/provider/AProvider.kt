@@ -12,8 +12,6 @@ class AProvider(
     private val webClient : WebClient
 ) : Provider<AProviderDto> {
 
-    override val key: Int =1
-
     override fun fetch(): List<AProviderDto> {
         return webClient.get()
             .uri("https://api.example.com/a/infos")
