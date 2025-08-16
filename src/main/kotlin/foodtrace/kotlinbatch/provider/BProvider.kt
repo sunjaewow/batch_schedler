@@ -11,7 +11,6 @@ class BProvider(
     private val bInfoRepository: BInfoRepository,
     private val webClient : WebClient
 ) : Provider<BProviderDto> {
-    override val key: Int=2
 
     override fun fetch(): List<BProviderDto> {
         return webClient.get()
